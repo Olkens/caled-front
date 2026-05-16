@@ -1,12 +1,19 @@
-import {TrainerCard} from "@/components/trainers/TrainerCard";
+"use client"
 
-const trainers = [
-    { id: 1, name: 'Michael Jackson', specialty: 'Strength' },
-    { id: 2, name: 'Big Shaq', specialty: 'Endurance' },
-    { id: 3, name: 'Kendrick Lamar', specialty: 'Flexibility' },
-];
+import { useEffect, useState } from "react"
+import { TrainerCard } from "@/components/trainers/TrainerCard"
+import { api } from "@/lib/api"
+import { Trainer } from "@/types/trainer"
 
 export default function Trainers() {
+    const [trainers, setTrainers] = useState<Trainer[]>([])
+
+    useEffect(() => {
+        api.get<Trainer[]>("/trainers/").then(({ data }) => {
+            setTrainers(data)
+        })
+    }, [])
+
     return (
         <main className="flex min-h-screen items-center justify-center">
             <div className="flex flex-col w-2/3">
@@ -14,7 +21,8 @@ export default function Trainers() {
                 <div className="grid grid-cols-2 gap-6">
                     {trainers.map((trainer) => (
                         <TrainerCard key={trainer.id} name={trainer.name} specialty={trainer.specialty} />
-                    ))}</div>
+                    ))}
+                </div>
             </div>
         </main>
     )
