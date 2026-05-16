@@ -23,6 +23,9 @@ export function Navbar() {
                             <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                                 <Link href="/">Strona główna</Link>
                             </NavigationMenuLink>
+                            <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                                <Link href="/trainers">Trainers</Link>
+                            </NavigationMenuLink>
                         </NavigationMenuItem>
                     </NavigationMenuList>
                 </NavigationMenu>
