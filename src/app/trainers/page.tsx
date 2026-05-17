@@ -11,6 +11,7 @@ export default function Trainers() {
     useEffect(() => {
         api.get<Trainer[]>("/trainers/").then(({ data }) => {
             setTrainers(data)
+            debugger
         })
     }, [])
 
@@ -20,7 +21,7 @@ export default function Trainers() {
                 <h1 className="pb-4 pt-4 m-auto">Trainers</h1>
                 <div className="grid grid-cols-2 gap-6">
                     {trainers.map((trainer) => (
-                        <TrainerCard key={trainer.id} name={trainer.name} specialty={trainer.specialty} />
+                        <TrainerCard key={trainer.id} name={trainer.user.name} description={trainer.description} />
                     ))}
                 </div>
             </div>

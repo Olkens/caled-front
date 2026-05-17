@@ -11,11 +11,11 @@ import {
 
 type TrainerCardProps = {
     name: string
-    specialty: string
+    description: string
     image?: string
 }
 
-export function TrainerCard({ name, specialty, image }: TrainerCardProps) {
+export function TrainerCard({ name, description, image }: TrainerCardProps) {
     return (
         <Card className="relative mx-auto w-full max-w-sm pt-0">
             <div className="absolute inset-0 z-30 aspect-video bg-black/35" />
@@ -26,11 +26,11 @@ export function TrainerCard({ name, specialty, image }: TrainerCardProps) {
             />
             <CardHeader>
                 <CardAction>
-                    <Badge variant="secondary">{specialty}</Badge>
+                    <Badge variant="secondary">Strength</Badge>
                 </CardAction>
                 <CardTitle>{name}</CardTitle>
                 <CardDescription>
-                    Want to build strength, it has never been easier with Michael Jackson!
+                    {description}
                 </CardDescription>
             </CardHeader>
             <CardFooter>
